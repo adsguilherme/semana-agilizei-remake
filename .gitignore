@@ -3,7 +3,7 @@
 node_modules/
 
 # relatorios mocha
-mochawesome-report
+mochawesome-report/
 
 # relatorios cucumber
 cypress/reports/index.html
