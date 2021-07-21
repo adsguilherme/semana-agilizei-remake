@@ -1,0 +1,154 @@
+[
+  {
+    "description": "    Como usuário, desejo realizar um cadastro\n    Para que possa acessar o sistema",
+    "keyword": "Funcionalidade",
+    "name": "Cadastro",
+    "line": 2,
+    "id": "cadastro",
+    "tags": [],
+    "uri": "Cadastro.feature",
+    "elements": [
+      {
+        "id": "cadastro;cadastro-de-usuário-no-site",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Cadastro de Usuário no Site",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 9,
+            "name": "que acesso o site",
+            "result": {
+              "status": "passed",
+              "duration": 10537000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 10,
+            "name": "quando informar meus dados",
+            "result": {
+              "status": "passed",
+              "duration": 4927000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "E ",
+            "line": 11,
+            "name": "salvar",
+            "result": {
+              "status": "passed",
+              "duration": 10328000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 12,
+            "name": "devo ser cadastrado com sucesso",
+            "result": {
+              "status": "passed",
+              "duration": 2855000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "description": "    Como usuário, desejo acessar a listagem\n    Para que possa visualizar meus dados de cadastro de",
+    "keyword": "Funcionalidade",
+    "name": "Listagem",
+    "line": 2,
+    "id": "listagem",
+    "tags": [],
+    "uri": "Listagem.feature",
+    "elements": [
+      {
+        "id": "listagem;listagem-sem-registros",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Listagem sem registros",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que o site não possui registros",
+            "result": {
+              "status": "passed",
+              "duration": 29212000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 9,
+            "name": "acessar a listagem",
+            "result": {
+              "status": "passed",
+              "duration": 5316000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 10,
+            "name": "devo visualizar a listagem vazia",
+            "result": {
+              "status": "passed",
+              "duration": 2674000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "listagem;listagem-com-apenas-um-registro",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Listagem com apenas um registro",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 14,
+            "name": "que o site possui apenas um registro",
+            "result": {
+              "status": "passed",
+              "duration": 158000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 15,
+            "name": "acessar a listagem",
+            "result": {
+              "status": "passed",
+              "duration": 4829000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Entao ",
+            "line": 16,
+            "name": "devo visualizar a listagem com um registro",
+            "result": {
+              "status": "passed",
+              "duration": 1870000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
