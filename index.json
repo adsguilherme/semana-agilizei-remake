@@ -1,0 +1,184 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-07-23T01:06:47.401Z",
+    "end": "2021-07-23T01:07:37.438Z",
+    "duration": 39863,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f548b0d-f617-406b-9366-efcb8b1c1dc0",
+      "title": "",
+      "fullFile": "cypress/integration/listagem.spec.js",
+      "file": "cypress/integration/listagem.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f8ef3aab-d94a-44e7-9c5e-606ab1584783",
+          "title": "Listagem",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Listagem sem registro",
+              "fullTitle": "Listagem Listagem sem registro",
+              "timedOut": null,
+              "duration": 11627,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 'GET', '**/api/1/databases/userdetails/collections/newtable?**'\ncy.server();\ncy.route({\n  method: 'GET',\n  url: '**/api/1/databases/userdetails/collections/newtable?**',\n  status: 200,\n  response: 'fx:webTable-get-vazio' // HACK - Para essa spec de Listagem vai ficar vazio, devido não ter o \"_id\" dentro do objeto do arquivo webTable-get-vazio.json. Ou simplesmente em response (linha 12) passar {}, ficando response: {}\n}).as('getNewtable');\ncy.visit('WebTable.html'); // Validando se existe apenas uma linha na tabela, sendo essa linha o cabeçalho.\ncy.get('div[role=row]').should('have.length', 1);\ncy.screenshot();",
+              "err": {},
+              "uuid": "70b73623-5d54-4ae7-b370-5b3c20d4cfdc",
+              "parentUUID": "f8ef3aab-d94a-44e7-9c5e-606ab1584783",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Listagem com apenas um registro registro",
+              "fullTitle": "Listagem Listagem com apenas um registro registro",
+              "timedOut": null,
+              "duration": 6031,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.server();\ncy.route({\n  method: 'GET',\n  url: '**/api/1/databases/userdetails/collections/newtable?**',\n  status: 200,\n  response: 'fx:webTable-get-unico'\n}).as('getNewtable'); // FIXME - E necessário passar o cy.visit após a utilização das rotas, caso contrário não apresenta os dados de mocks.\ncy.visit('WebTable.html');\ncy.get('div[role=row] div[role=gridcell]').eq(4) // A tabela possui 6 posições, e devemos interagir com a coluna 'Phone' que é a 5ª. Porém na programação a contagem inicia em ZERO, sendo assim a posição a ser informada deve ser a 4.\n.find('div').as('gridCellPhone'); // HACK - Poderia realizar o should após o find. Porém para mostrar uma outra forma, foi criado um 'alias', e depois chamado um novo cy.get para realizar a validação.\ncy.get('@gridCellPhone').should('contain.text', '1234567890');\ncy.screenshot();",
+              "err": {},
+              "uuid": "e3b6e529-d338-4156-94ac-0c350062b1dd",
+              "parentUUID": "f8ef3aab-d94a-44e7-9c5e-606ab1584783",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "70b73623-5d54-4ae7-b370-5b3c20d4cfdc",
+            "e3b6e529-d338-4156-94ac-0c350062b1dd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17658,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "46e845b5-aed6-4569-85f9-2451f9547bcb",
+      "title": "",
+      "fullFile": "cypress/integration/cadastro.spec.js",
+      "file": "cypress/integration/cadastro.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c04eac17-a192-42f0-953c-c785700d7e04",
+          "title": "Cadastro",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cadastro de Usuário no Site",
+              "fullTitle": "Cadastro Cadastro de Usuário no Site",
+              "timedOut": null,
+              "duration": 22205,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Cenário\n// Trabalhando com rotas e esperas\n// POST 200 /api/1/databases/userdetails/collections/newtable?apiKey=YEX0M2QMPd7JWJw_ipMB3a5gDddt4B_X\n// POST 200 /api/1/databases/userdetails/collections/usertable?apiKey=YEX0M2QMPd7JWJw_ipMB3a5gDddt4B_X\n// GET 200 /api/1/databases/userdetails/collections/newtable?apiKey=YEX0M2QMPd7JWJw_ipMB3a5gDddt4B_X\n// cy.server() // O uso do cy.route exige o start do cy.server\n// O uso de ** antes da / é chamado de caractere coringa. Ou seja não importa o host que antece a rota /api e o token que vem depois do /newtable?**\n// FIXME - Essas 3 linhas abaixo funcionariam se a aplicação estivesse estável.\n// cy.route('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable') // as é o alias. Que é uma variável temporária do Cypress.\n// cy.route('POST', '**/api/1/databases/userdetails/collections/usertable?**').as('postUserTable')\n// cy.route('GET', '**/api/1/databases/userdetails/collections/newtable?**').as('getNewTable')\n// HACK - Como a aplicação está instável, devemos criar mocks.\n// Dessa forma sendo possível reproduzir o fluxo de cadastro.\ncy.server();\ncy.route({\n  method: 'POST',\n  url: '**/api/1/databases/userdetails/collections/newtable?**',\n  status: 200,\n  response: 'fx:webTable-get-vazio' // HACK - Pegando as informações de mock.\n}).as('postNewTable');\ncy.route({\n  method: 'POST',\n  url: '**/api/1/databases/userdetails/collections/usertable?**',\n  status: 200,\n  response: 'fx:webTable-get-vazio'\n}).as('postUserTable');\ncy.route({\n  method: 'GET',\n  url: '**/api/1/databases/userdetails/collections/newtable?**',\n  status: 200,\n  response: 'fx:webTable-get-vazio'\n}).as('getNewTable');\ncy.visit('Register.html'); // Type = Comando para digitar texto em um campo\ncy.get('input[placeholder=\"First Name\"]').type(chance.first());\ncy.get('input[ng-model=\"LastName\"]').type(chance.last());\ncy.get('input[ng-model=\"EmailAdress\"]').type(chance.email());\ncy.get('input[ng-model=\"Phone\"]').type(chance.phone({\n  formatted: false\n})); // Formata a máscara do telefone. Veriifcar se tem como deixar no padrão utilzado no Brasil\n// Check = Comando para interagir com radio buttons e checkbox\ncy.get('input[value=\"Male\"]').check();\ncy.get('input[type=\"checkbox\"]').check('Cricket'); // Irá clicar no checkbox que possui a palavra Cricket\ncy.get('input[type=\"checkbox\"]').check('Hockey'); // Irá clicar no checkbox que possui a palavra Hockey\n// Select e combos\ncy.get('select#Skills').select('Javascript'); // Irá clicar no combo e selecionar a opção 'Javascript'\ncy.get('select#countries').select('Brazil');\ncy.get('select#country').select('United States of America', {\n  force: true\n});\ncy.get('select#yearbox').select('1986');\ncy.get('select[ng-model=\"monthbox\"]').select('October');\ncy.get('select#daybox').select('5');\ncy.get('input#firstpassword').type('#Pw123456');\ncy.get('input#secondpassword').type('#Pw123456'); // Realizando o upload de arquivo. Passar o nome do arquivo, no caso uploadFile.jpg\ncy.get('input#imagesrc').attachFile('uploadFile.jpg'); // Enviando o cadastro com o click no botão de submissão\ncy.get('button#submitbtn').click(); // Esperar a resposta de uma rota. Exemplo: cy.route('POST', '**/api/1/databases/userdetails/collections/newtable?**').as('postNewTable')\n// Então (then) fazer alguam coisa com essa reposta da rota. No caso validar o status de reposta do servidor ou o response body.\ncy.wait('@postNewTable').then(function (resNewtable) {\n  // console.log(resNewtable.status)\n  // cy.log(resNewtable.status)\n  // HACK - Realizando asserções com o uso de expect\n  // O chai utlizar o expect e should para asserções\n  // Espero do response (demos o nome de resNewtable) que ele tenha o status igual a 200 (nesse caso está null, pois a aplicação está fora do ar)\n  expect(resNewtable.status).to.eq(200); // Nesse caso tem que ser expect, com should o teste falha\n});\ncy.wait('@postUserTable').then(function (resUserTable) {\n  expect(resUserTable.status).to.eq(200);\n});\ncy.wait('@getNewTable').then(function (resNewTable) {\n  expect(resNewTable.status).to.eq(200);\n}); // Validando se a url contain a palarava WebTable na url.\n// Devido a problemas na aplicação, não está realizando o cadastro e redirecionando para a página de WebTable.\ncy.url().should('contain', 'WebTable'); // Nesse caso tem que ser should, com expect o teste falha\ncy.screenshot();",
+              "err": {},
+              "uuid": "a46399d4-b9e0-44e1-9484-83948848e453",
+              "parentUUID": "c04eac17-a192-42f0-953c-c785700d7e04",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a46399d4-b9e0-44e1-9484-83948848e453"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22205,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "mochawesome-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
