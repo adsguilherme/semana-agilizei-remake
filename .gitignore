@@ -17,3 +17,4 @@ cypress/screenshots
 # outros
 .DS_Store
 .sonarlint
+index.js
